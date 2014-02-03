@@ -15,8 +15,12 @@ import play.i18n.Lang;
 import play.libs.F;
 import play.libs.F.*;
 
+import static org.junit.Assert.*;
+
 import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
+
+import models.PokerCarte;
 
 
 /**
@@ -35,7 +39,7 @@ public class ApplicationTest {
 	
 	@Test
 	public void testCouleurCarte() {
-		PokerCarte c = new PokerCarte();
+		PokerCarte c = new PokerCarte("as","carreau");
 		assertEquals(c.couleur,"carreau");
 	}
 	

@@ -11,6 +11,7 @@ public class PokerCarte {
 	public PokerCarte() {}
 	public PokerCarte(String v, String c) {
 		this.denomination = v;
-		this.denomination = c;
+		this.couleur = c;
 	}
+
 }
