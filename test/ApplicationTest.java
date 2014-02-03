@@ -33,7 +33,7 @@ public class ApplicationTest {
 
 	@Test
 	public void testDenominationCarte() {
-		PokerCarte c = new PokerCarte();
+		PokerCarte c = new PokerCarte("as","carreau");
 		assertEquals(c.denomination, "as");
 	}
 	
