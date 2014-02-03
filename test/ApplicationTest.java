@@ -42,5 +42,12 @@ public class ApplicationTest {
 		PokerCarte c = new PokerCarte("as","carreau");
 		assertEquals(c.getCouleur(),"carreau");
 	}
+
+	@Test
+	public void compareCouleurCarte() {
+		PokerCarte c1 = new PokerCarte("as","carreau");
+		PokerCarte c2 = new PokerCarte("reine","carreau");
+		c1.compareCouleur(c2);
+	}
 	
 }
