@@ -34,13 +34,13 @@ public class ApplicationTest {
 	@Test
 	public void testDenominationCarte() {
 		PokerCarte c = new PokerCarte("as","carreau");
-		assertEquals(c.denomination, "as");
+		assertEquals(c.getDenomination(), "as");
 	}
 	
 	@Test
 	public void testCouleurCarte() {
 		PokerCarte c = new PokerCarte("as","carreau");
-		assertEquals(c.couleur,"carreau");
+		assertEquals(c.getCouleur(),"carreau");
 	}
 	
 }
