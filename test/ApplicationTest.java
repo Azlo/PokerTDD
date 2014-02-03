@@ -32,4 +32,11 @@ public class ApplicationTest {
 		PokerCarte c = new PokerCarte();
 		assertEquals(c.denomination, "as");
 	}
+	
+	@Test
+	public void testCouleurCarte() {
+		PokerCarte c = new PokerCarte();
+		assertEquals(c.couleur,"carreau");
+	}
+	
 }
