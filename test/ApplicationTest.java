@@ -57,6 +57,8 @@ public class ApplicationTest {
 		PokerCarte c1 = new PokerCarte("as","carreau");
 		PokerCarte c2 = new PokerCarte("as","coeur");
 		assertTrue(c1.compareDenomination(c2));
+		PokerCarte c3 = new PokerCarte("9", "coeur");
+		assertFalse(c2.compareDenomination(c3));
 	}
 	
 }

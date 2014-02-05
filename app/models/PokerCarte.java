@@ -29,4 +29,11 @@ public class PokerCarte {
 			return false;
 	}
 
+	public Boolean compareDenomination(PokerCarte pc){
+		if(this.denomination.equalsIgnoreCase(pc.getDenomination()))
+			return true;
+		else
+			return false;
+	}
+
 }
