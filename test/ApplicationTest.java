@@ -47,7 +47,9 @@ public class ApplicationTest {
 	public void compareCouleurCarte() {
 		PokerCarte c1 = new PokerCarte("as","carreau");
 		PokerCarte c2 = new PokerCarte("reine","carreau");
-		c1.compareCouleur(c2);
+		assertTrue(c1.compareCouleur(c2));
+		PokerCarte c3 = new PokerCarte("9", "coeur");
+		assertFalse(c2.compareCouleur(c3));
 	}
 	
 }

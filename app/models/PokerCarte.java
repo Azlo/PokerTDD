@@ -22,4 +22,11 @@ public class PokerCarte {
 		return this.couleur;
 	}
 
+	public Boolean compareCouleur(PokerCarte pc){
+		if(this.couleur.equalsIgnoreCase(pc.getCouleur()))
+			return true;
+		else
+			return false;
+	}
+
 }
