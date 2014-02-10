@@ -60,5 +60,11 @@ public class ApplicationTest {
 		PokerCarte c3 = new PokerCarte("9", "coeur");
 		assertFalse(c2.compareDenomination(c3));
 	}
+
+	@Test 
+	public void testNouvelleMain() {
+		PokerMain pm1 = new PokerMain();
+		assertThat(pm1.size()).isEqualTo(5);
+	}
 	
 }
