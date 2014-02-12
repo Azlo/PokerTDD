@@ -9,15 +9,48 @@ import models.PokerCarte;
 public class PokerMain {
 	@Required
 	private ArrayList<PokerCarte> main = new ArrayList<PokerCarte>();
+	private String[] denominations = {"2","3","4","5","6","7","8","9","10","valet","dame","roi","as"};
+	private String[] couleurs = {"carreau", "coeur", "trefle", "pique"};
+
 	public PokerMain() {
-		main.add(new PokerCarte("8","carreau"));
-		main.add(new PokerCarte("7","coeur"));
-		main.add(new PokerCarte("dame","pique"));
-		main.add(new PokerCarte("roi","coeur"));
-		main.add(new PokerCarte("as","trefle"));
+		generate();
+	}
+
+	private void generate() {
+
+		int i = 0;		
+
+		do{
+
+			int indexDenomination = randInt(0,denominations.length-1);
+			int indexCouleur = randInt(0,couleurs.length-1);
+
+			PokerCarte carte = new PokerCarte(denominations[indexDenomination],couleurs[indexCouleur]);
+
+			if (!main.contains(carte)) {
+			    main.add(carte);
+			    i++;
+			}
+
+		}while( i < 5 );
+
+
 	}
 
 	public int size() {
 		return main.size();
 	}
+
+	public static int randInt(int min, int max) {
+
+	    // Usually this can be a field rather than a method variable
+	    Random rand = new Random();
+
+	    // nextInt is normally exclusive of the top value,
+	    // so add 1 to make it inclusive
+	    int randomNum = rand.nextInt((max - min) + 1) + min;
+
+	    return randomNum;
+	}
+
 }
