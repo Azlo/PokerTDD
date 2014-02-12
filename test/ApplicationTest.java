@@ -63,9 +63,8 @@ public class ApplicationTest {
 	}
 
 	@Test 
-	public void testNouvelleMain() {
-		PokerMain pm1 = new PokerMain();
+	public void testNouvelleMainRandom() {
+		PokerMain pm1 = new PokerMain(true);
 		assertThat(pm1.size()).isEqualTo(5);
 	}
-	
 }

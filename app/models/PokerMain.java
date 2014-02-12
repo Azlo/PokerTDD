@@ -12,7 +12,9 @@ public class PokerMain {
 	private String[] denominations = {"2","3","4","5","6","7","8","9","10","valet","dame","roi","as"};
 	private String[] couleurs = {"carreau", "coeur", "trefle", "pique"};
 
-	public PokerMain() {
+	public PokerMain() {}
+
+	public PokerMain(boolean random) {
 		generate();
 	}
 
@@ -28,13 +30,11 @@ public class PokerMain {
 			PokerCarte carte = new PokerCarte(denominations[indexDenomination],couleurs[indexCouleur]);
 
 			if (!main.contains(carte)) {
-			    main.add(carte);
-			    i++;
+				main.add(carte);
+				i++;
 			}
 
 		}while( i < 5 );
-
-
 	}
 
 	public int size() {
@@ -43,14 +43,14 @@ public class PokerMain {
 
 	public static int randInt(int min, int max) {
 
-	    // Usually this can be a field rather than a method variable
-	    Random rand = new Random();
+		Random rand = new Random();
 
-	    // nextInt is normally exclusive of the top value,
-	    // so add 1 to make it inclusive
-	    int randomNum = rand.nextInt((max - min) + 1) + min;
+		int randomNum = rand.nextInt((max - min) + 1) + min;
 
-	    return randomNum;
+		return randomNum;
 	}
 
+	public void add(PokerCarte c1) {
+		main.add(c1);
+	}
 }
