@@ -67,4 +67,14 @@ public class ApplicationTest {
 		PokerMain pm1 = new PokerMain(true);
 		assertThat(pm1.size()).isEqualTo(5);
 	}
+	
+	@Test public void testPaire() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("as","carreau"));
+		main.add( new PokerCarte("as","pique"));
+		main.add( new PokerCarte("8","trefle"));
+		main.add( new PokerCarte("dame","coeur"));
+		main.add( new PokerCarte("9", "coeur"));
+		assertTrue(main.possedePaire());
+	}
 }
