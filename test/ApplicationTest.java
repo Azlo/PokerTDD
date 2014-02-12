@@ -21,6 +21,7 @@ import static play.test.Helpers.*;
 import static org.fest.assertions.Assertions.*;
 
 import models.PokerCarte;
+import models.PokerMain;
 
 
 /**
