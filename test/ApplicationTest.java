@@ -167,7 +167,7 @@ public class ApplicationTest {
 		assertTrue(main.possedeCouleur());
 	}
 
-		@Test
+	@Test
 	public void testAucuneCouleur() {
 		PokerMain main = new PokerMain();
 		main.add( new PokerCarte("8","carreau"));
@@ -176,5 +176,16 @@ public class ApplicationTest {
 		main.add( new PokerCarte("roi","carreau"));
 		main.add( new PokerCarte("dame","carreau"));
 		assertFalse(main.possedeCouleur());
+	}
+
+	@Test
+	public void testPoidsCarteSuperieur() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("7","pique"));
+		main.add( new PokerCarte("as","trefle"));
+		main.add( new PokerCarte("roi","carreau"));
+		main.add( new PokerCarte("dame","coeur"));
+		assertFalse(main.carteSuperieur());
 	}
 }
