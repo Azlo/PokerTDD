@@ -211,4 +211,31 @@ public class ApplicationTest {
 
 		assertTrue(main1.getRangCarte(cartePlusHauteMain1) < main2.getRangCarte(cartePlusHauteMain2));
 	}
+
+	@Test
+	public void testPaireSuperieurMain() {
+		PokerMain main1 = new PokerMain();
+		main1.add( new PokerCarte("3","pique"));
+		main1.add( new PokerCarte("2","carreau"));
+		main1.add( new PokerCarte("3","trefle"));
+		main1.add( new PokerCarte("valet","carreau"));
+		main1.add( new PokerCarte("dame","coeur"));
+
+		PokerMain main2 = new PokerMain();
+		main2.add( new PokerCarte("8","carreau"));
+		main2.add( new PokerCarte("7","pique"));
+		main2.add( new PokerCarte("5","trefle"));
+		main2.add( new PokerCarte("roi","carreau"));
+		main2.add( new PokerCarte("5","coeur"));
+		
+		assertTrue(main1.poidsPaire < main2.poidsPaire);
+
+		/*PokerCarte cartePlusHauteMain1 = main1.carteSuperieur();
+		PokerCarte cartePlusHauteMain2 = main2.carteSuperieur();
+
+		assertTrue(main1.getRangCarte(cartePlusHauteMain1) < main2.getRangCarte(cartePlusHauteMain2));*/
+	}
+
+
+
 }
