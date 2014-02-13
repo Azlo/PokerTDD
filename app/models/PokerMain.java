@@ -70,38 +70,22 @@ public class PokerMain {
 
 	public int possedePaire() {
 
-		ArrayList<PokerCarte> cartesRestantes = main;
-		int nbPaires = 0;
+		ArrayList<PokerCarte> lesPaires = new ArrayList<PokerCarte>();
 
-		for(int i=0; i<main.size(); i++) {
-			for(int j=i+1; j<main.size(); j++) {
-				if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
+		for ( int i = 0 ; i < main.size() ; i++ ) {
+			
+			for ( int j = i+1 ; j < main.size() ; j++ ) {
 
-					cartesRestantes.remove(i);
-					cartesRestantes.remove(j-1);
+				if( main.get(i).getDenomination() == main.get(j).getDenomination() ) {
 
-					nbPaires++;
+					lesPaires.add( main.get(i) );
 
-					int carteIdentiques = 0;
-					boolean mainPleine = false;
+					lesPaires.add( main.get(j) );
 
-					for(int k=0; k<cartesRestantes.size() && !mainPleine; k++) {
-						for(int l=k+1; l<cartesRestantes.size() && !mainPleine; l++) {
-							if(cartesRestantes.get(k).getDenomination() == cartesRestantes.get(l).getDenomination()) {
-								carteIdentiques++;
-							}
-
-						}
-					}
-
-					if (carteIdentiques == 2) {
-						nbPaires++;
-					}
-					return nbPaires;
 				}
 			}
 		}
-		return nbPaires;
+		return lesPaires.size()/2 ;
 	}
 
 	public ArrayList<PokerCarte> getPaire() {	
@@ -118,12 +102,12 @@ public class PokerMain {
 					}
 				}
 			}
-
 			return paire;
-
 		}
-
-		return null;
+		else {
+			System.out.println("Aucune Paire");
+			return null;
+		}		
 	}
 
 	public boolean possedeBrelan() {
@@ -207,15 +191,32 @@ public class PokerMain {
 	}
 
 	public int poidsPaire() {
-		if(this.getPaire() != null) {
 
-			PokerCarte carte = this.getPaire().get(0);
-			return Arrays.asList(denominations).indexOf(carte.getDenomination());
+		if(this.getPaire() != null && this.getPaire().size() > 0) {
+
+			PokerCarte premiereCarte = this.getPaire().get(0);
+
+			int indexHigher = Arrays.asList(denominations).indexOf(premiereCarte.getDenomination());
+
+			for ( int i = 0; i < this.getPaire().size() ; i++ ) {
+
+				int indexRang = Arrays.asList(denominations).indexOf(this.getPaire().get(i).getDenomination());
+
+				if( indexRang > indexHigher ) {
+
+					indexHigher = indexRang;
+
+				}
+
+			}
+
+			return indexHigher;
 
 		}
 		else{
 			return -1;
 		}
+
 	}
 
 	public void evaluerMain() {

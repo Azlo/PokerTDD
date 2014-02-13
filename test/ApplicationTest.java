@@ -246,6 +246,11 @@ public class ApplicationTest {
 		main2.add( new PokerCarte("5","trefle"));
 		main2.add( new PokerCarte("roi","carreau"));
 		main2.add( new PokerCarte("5","coeur"));
+
+		System.out.println("-- Poids paire main 1 --");
+		System.out.println(main1.poidsPaire());
+		System.out.println("-- Poids paire main 1 --");	
+
 		
 		assertTrue(main1.poidsPaire() < main2.poidsPaire());
 	}
