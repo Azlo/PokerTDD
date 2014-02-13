@@ -219,6 +219,10 @@ public class PokerMain {
 
 	}
 
+	public int getPoids() {
+		return this.poids;
+	}
+
 	public void evaluerMain() {
 		if(this.possedePaire() == 1) {this.poids = Arrays.asList(rang).indexOf("paire");}
 		else if(this.possedePaire() == 2) {this.poids = Arrays.asList(rang).indexOf("deuxPaire");}

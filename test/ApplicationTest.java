@@ -246,13 +246,36 @@ public class ApplicationTest {
 		main2.add( new PokerCarte("5","trefle"));
 		main2.add( new PokerCarte("roi","carreau"));
 		main2.add( new PokerCarte("5","coeur"));
-
-		System.out.println("-- Poids paire main 1 --");
-		System.out.println(main1.poidsPaire());
-		System.out.println("-- Poids paire main 1 --");	
-
 		
 		assertTrue(main1.poidsPaire() < main2.poidsPaire());
+	}
+
+	@Test
+	public void testEvaluerMainsCouleurBrelan() {
+
+		PokerMain mainCouleur = new PokerMain();
+		mainCouleur.add( new PokerCarte("8","carreau"));
+		mainCouleur.add( new PokerCarte("7","carreau"));
+		mainCouleur.add( new PokerCarte("as","carreau"));
+		mainCouleur.add( new PokerCarte("roi","carreau"));
+		mainCouleur.add( new PokerCarte("dame","carreau"));
+
+
+		PokerMain mainBrelan = new PokerMain();
+		mainBrelan.add( new PokerCarte("8","carreau"));
+		mainBrelan.add( new PokerCarte("8","pique"));
+		mainBrelan.add( new PokerCarte("8","trefle"));
+		mainBrelan.add( new PokerCarte("3","coeur"));
+		mainBrelan.add( new PokerCarte("9", "coeur"));
+
+		mainCouleur.evaluerMain();
+		mainBrelan.evaluerMain();
+
+		assertThat(mainCouleur.getPoids()).isEqualTo(5);
+		assertThat(mainBrelan.getPoids()).isEqualTo(3);
+
+		assertTrue(mainCouleur.getPoids() > mainBrelan.getPoids());
+
 	}
 
 }
