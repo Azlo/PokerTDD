@@ -134,7 +134,21 @@ public class PokerMain {
 				estUneCouleur = false;
 			}
 		}
-
 		return estUneCouleur;
+	}
+
+	public PokerCarte carteSuperieur() {
+		String firstDenomination = main.get(0).getDenomination();
+		int higher = Arrays.asList(denominations).indexOf(firstDenomination);
+		int returnCarte = 0;
+
+		for(int i=1;i<main.size();i++){
+			int index = Arrays.asList(denominations).indexOf(main.get(i).getDenomination());
+			if(index > higher){
+				higher = index;
+				returnCarte = i;
+			}
+		}
+		return main.get(returnCarte);
 	}
 }
