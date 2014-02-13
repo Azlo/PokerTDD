@@ -53,4 +53,9 @@ public class PokerMain {
 	public void add(PokerCarte c1) {
 		main.add(c1);
 	}
+
+	public boolean possedePaire() {
+		return true;
+	}
+
 }
