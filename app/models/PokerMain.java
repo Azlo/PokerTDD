@@ -94,6 +94,8 @@ public class PokerMain {
 		return brelan;
 	}
 
-
+	public boolean possedeMainPlein() {
+		return true;
+	}
 
 }
