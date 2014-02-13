@@ -125,4 +125,16 @@ public class PokerMain {
 		}
 		return false;
 	}
+
+	public boolean possedeCouleur() {
+		boolean estUneCouleur = true;
+		String couleur = main.get(0).getCouleur();
+		for(int i=1; i<main.size() && estUneCouleur; i++) {
+			if(!(main.get(i).getCouleur() == couleur)) {
+				estUneCouleur = false;
+			}
+		}
+
+		return estUneCouleur;
+	}
 }
