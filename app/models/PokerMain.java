@@ -73,6 +73,7 @@ public class PokerMain {
 				}
 			}
 		}
+
 		return nbPaires;
 	}
 
@@ -94,8 +95,37 @@ public class PokerMain {
 		return brelan;
 	}
 
-	public boolean possedeMainPlein() {
-		return true;
+	public boolean possedeMainPleine() {
+		
+		ArrayList<PokerCarte> cartesRestantes = main;
+
+		for(int i=0; i<main.size(); i++) {
+			for(int j=i+1; j<main.size(); j++) {
+				if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
+
+					cartesRestantes.remove(i);
+					cartesRestantes.remove(j-1);
+
+					int carteIdentiques = 0;
+					boolean mainPleine = false;
+
+					for(int k=0; k<cartesRestantes.size() && !mainPleine; k++) {
+						for(int l=k+1; l<cartesRestantes.size() && !mainPleine; l++) {
+							if(cartesRestantes.get(k).getDenomination() == cartesRestantes.get(l).getDenomination()) {
+								carteIdentiques++;
+							}
+							if (carteIdentiques == 3) {
+								mainPleine = true;
+							}
+						}
+					}
+					return mainPleine;
+				}
+			}
+		}
+
+		return false;
+
 	}
 
 }

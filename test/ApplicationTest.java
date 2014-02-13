@@ -142,7 +142,18 @@ public class ApplicationTest {
 		main.add( new PokerCarte("dame","trefle"));
 		main.add( new PokerCarte("dame","coeur"));
 		main.add( new PokerCarte("dame","pique"));
-		assertTrue(main.possedeMainPlein());
+		assertTrue(main.possedeMainPleine());
+	}
+
+	@Test
+	public void testMainNonPleine() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("8","pique"));
+		main.add( new PokerCarte("as","trefle"));
+		main.add( new PokerCarte("dame","coeur"));
+		main.add( new PokerCarte("dame","pique"));
+		assertFalse(main.possedeMainPleine());
 	}
 
 }
