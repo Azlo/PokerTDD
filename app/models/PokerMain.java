@@ -37,6 +37,14 @@ public class PokerMain {
 		}while( i < 5 );
 	}
 
+	public PokerCarte getCarte(int numCarte) {
+		return main.get(numCarte);
+	}
+
+	public ArrayList<PokerCarte> getMain() {
+		return main;
+	}
+
 	public int size() {
 		return main.size();
 	}
