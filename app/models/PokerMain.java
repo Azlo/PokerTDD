@@ -134,7 +134,6 @@ public class PokerMain {
 				estUneCouleur = false;
 			}
 		}
-
 		return estUneCouleur;
 	}
 
@@ -145,6 +144,7 @@ public class PokerMain {
 
 		for(int i=1;i<main.size();i++){
 			int index = Arrays.asList(denominations).indexOf(main.get(i).getDenomination());
+
 			if(index>higher){
 				higher=index;
 				returnCarte=i;
@@ -153,6 +153,10 @@ public class PokerMain {
 		
 		return main.get(returnCarte);
 
+	}
+
+	public int getRangCarte(PokerCarte carte) {
+		return Arrays.asList(denominations).indexOf(carte.getDenomination());
 	}
 
 }
