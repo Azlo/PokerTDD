@@ -151,4 +151,9 @@ public class PokerMain {
 		}
 		return main.get(returnCarte);
 	}
+
+	public int getRangCarte(PokerCarte carte) {
+		return Arrays.asList(denominations).indexOf(carte.getDenomination());
+	}
+
 }
