@@ -186,6 +186,7 @@ public class ApplicationTest {
 		main.add( new PokerCarte("as","trefle"));
 		main.add( new PokerCarte("roi","carreau"));
 		main.add( new PokerCarte("dame","coeur"));
-		assertFalse(main.carteSuperieur());
+		assertEquals(main.carteSuperieur().getDenomination(),"as");
+		assertThat(main.carteSuperieur().getDenomination()).isNotEqualTo("dame");
 	}
 }
