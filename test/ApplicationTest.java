@@ -188,8 +188,6 @@ public class ApplicationTest {
 		main.add( new PokerCarte("dame","coeur"));
 		assertEquals(main.carteSuperieur().getDenomination(),"as");
 		assertThat(main.carteSuperieur().getDenomination()).isNotEqualTo("dame");
-<<<<<<< HEAD
-=======
 	}
 
 	@Test
@@ -212,6 +210,5 @@ public class ApplicationTest {
 		PokerCarte cartePlusHauteMain2 = main2.carteSuperieur();
 
 		assertTrue(main1.getRangCarte(cartePlusHauteMain1) < main2.getRangCarte(cartePlusHauteMain2));
->>>>>>> binome/master
 	}
 }

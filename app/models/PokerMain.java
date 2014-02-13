@@ -144,15 +144,12 @@ public class PokerMain {
 
 		for(int i=1;i<main.size();i++){
 			int index = Arrays.asList(denominations).indexOf(main.get(i).getDenomination());
-
-			if(index>higher){
-				higher=index;
-				returnCarte=i;
+			if(index > higher){
+				higher = index;
+				returnCarte = i;
 			}
 		}
-		
 		return main.get(returnCarte);
-
 	}
 
 	public int getRangCarte(PokerCarte carte) {
