@@ -113,14 +113,25 @@ public class ApplicationTest {
 	}
 
 	@Test 
-	public void testBrelan() {
+	public void testUnBrelan() {
 		PokerMain main = new PokerMain();
 		main.add( new PokerCarte("8","carreau"));
 		main.add( new PokerCarte("8","pique"));
 		main.add( new PokerCarte("8","trefle"));
 		main.add( new PokerCarte("3","coeur"));
 		main.add( new PokerCarte("9", "coeur"));
-		assertThat(main.possedeBrelan()).isEqualTo(1);
+		assertTrue(main.possedeBrelan());
+	}
+
+	@Test 
+	public void testAucunBrelan() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("8","pique"));
+		main.add( new PokerCarte("7","trefle"));
+		main.add( new PokerCarte("3","coeur"));
+		main.add( new PokerCarte("9", "coeur"));
+		assertFalse(main.possedeBrelan());
 	}
 
 }

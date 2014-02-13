@@ -58,8 +58,8 @@ public class PokerMain {
 
 		int nbPaires = 0;
 
-		for(int i=0;i<main.size();i++) {
-			for(int j=i+1;j<main.size();j++) {
+		for(int i=0; i<main.size(); i++) {
+			for(int j=i+1; j<main.size(); j++) {
 				if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
 					nbPaires++;
 				}
@@ -68,6 +68,24 @@ public class PokerMain {
 		return nbPaires;
 	}
 
-	
+	public boolean possedeBrelan() {
+
+		int carteIdentiques = 0;
+		boolean brelan = false;
+
+		for(int i=0; i<main.size() && brelan!=true; i++) {
+			for(int j=i+1; j<main.size() && brelan!=true; j++) {
+				if(main.get(i).getDenomination() == main.get(j).getDenomination()) {
+					carteIdentiques++;
+				}
+				if (carteIdentiques == 3) {
+					brelan = true;
+				}
+			}
+		}
+		return brelan;
+	}
+
+
 
 }
