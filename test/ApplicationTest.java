@@ -228,14 +228,8 @@ public class ApplicationTest {
 		main2.add( new PokerCarte("roi","carreau"));
 		main2.add( new PokerCarte("5","coeur"));
 		
-		assertTrue(main1.poidsPaire < main2.poidsPaire);
+		assertTrue(main1.poidsPaire() < main2.poidsPaire());
 
-		/*PokerCarte cartePlusHauteMain1 = main1.carteSuperieur();
-		PokerCarte cartePlusHauteMain2 = main2.carteSuperieur();
-
-		assertTrue(main1.getRangCarte(cartePlusHauteMain1) < main2.getRangCarte(cartePlusHauteMain2));*/
 	}
-
-
 
 }

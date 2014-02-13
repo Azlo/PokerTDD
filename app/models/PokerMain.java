@@ -77,6 +77,28 @@ public class PokerMain {
 		return nbPaires;
 	}
 
+	public ArrayList<PokerCarte> getPaire() {	
+
+		if(this.possedePaire() > 0){
+
+			ArrayList<PokerCarte> paire = new ArrayList<PokerCarte>();
+
+			for(int i=0; i<main.size(); i++) {
+				for(int j=i+1; j<main.size(); j++) {
+					if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
+						paire.add(main.get(i));
+						paire.add(main.get(j));
+					}
+				}
+			}
+
+			return paire;
+
+		}
+
+		return null;
+	}
+
 	public boolean possedeBrelan() {
 
 		int carteIdentiques = 0;
@@ -154,6 +176,21 @@ public class PokerMain {
 
 	public int getRangCarte(PokerCarte carte) {
 		return Arrays.asList(denominations).indexOf(carte.getDenomination());
+	}
+
+	public int poidsPaire() {
+		/* Récupérer les paires */
+		if(this.getPaire() != null) {
+
+			PokerCarte carte = this.getPaire().get(0);
+
+			return Arrays.asList(denominations).indexOf(carte.getDenomination());
+
+		}else{
+
+			return -1;
+
+		}
 	}
 
 }
