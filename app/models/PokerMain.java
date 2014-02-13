@@ -50,14 +50,6 @@ public class PokerMain {
 	}
 
 
-	public void evaluerMain() {
-		if (main.possedePaire) {this.poids = Arrays.asList(rang).indexOf("paire");}
-		if (main.possedeBrelan) {this.poids = Arrays.asList(rang).indexOf("brelan");}
-		if (main.possedeCouleur) {this.poids = Arrays.asList(rang).indexOf("couleur");}
-		if (main.possedeMainPleine) {this.poids = Arrays.asList(rang).indexOf("MainPleine");}
-	}
-
-
 	public int size() {
 		return main.size();
 	}
@@ -78,16 +70,37 @@ public class PokerMain {
 
 	public int possedePaire() {
 
+		ArrayList<PokerCarte> cartesRestantes = main;
 		int nbPaires = 0;
 
 		for(int i=0; i<main.size(); i++) {
 			for(int j=i+1; j<main.size(); j++) {
 				if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
+
+					cartesRestantes.remove(i);
+					cartesRestantes.remove(j-1);
+
 					nbPaires++;
+
+					int carteIdentiques = 0;
+					boolean mainPleine = false;
+
+					for(int k=0; k<cartesRestantes.size() && !mainPleine; k++) {
+						for(int l=k+1; l<cartesRestantes.size() && !mainPleine; l++) {
+							if(cartesRestantes.get(k).getDenomination() == cartesRestantes.get(l).getDenomination()) {
+								carteIdentiques++;
+							}
+
+						}
+					}
+
+					if (carteIdentiques == 2) {
+						nbPaires++;
+					}
+					return nbPaires;
 				}
 			}
 		}
-
 		return nbPaires;
 	}
 
@@ -163,8 +176,6 @@ public class PokerMain {
 	}
 
 
-
-
 	public boolean possedeCouleur() {
 		boolean estUneCouleur = true;
 		String couleur = main.get(0).getCouleur();
@@ -205,6 +216,14 @@ public class PokerMain {
 		else{
 			return -1;
 		}
+	}
+
+	public void evaluerMain() {
+		if(this.possedePaire() == 1) {this.poids = Arrays.asList(rang).indexOf("paire");}
+		else if(this.possedePaire() == 2) {this.poids = Arrays.asList(rang).indexOf("deuxPaire");}
+		if (this.possedeBrelan()) {this.poids = Arrays.asList(rang).indexOf("brelan");}
+		if (this.possedeCouleur()) {this.poids = Arrays.asList(rang).indexOf("couleur");}
+		if (this.possedeMainPleine()) {this.poids = Arrays.asList(rang).indexOf("MainPleine");}
 	}
 
 }
