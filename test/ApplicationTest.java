@@ -213,7 +213,7 @@ public class ApplicationTest {
 	}
 
 	@Test
-	public void testPaireSuperieurMain() {
+	public void testMainSuperieurPaire() {
 		PokerMain main1 = new PokerMain();
 		main1.add( new PokerCarte("3","pique"));
 		main1.add( new PokerCarte("2","carreau"));
@@ -229,7 +229,25 @@ public class ApplicationTest {
 		main2.add( new PokerCarte("5","coeur"));
 		
 		assertTrue(main1.poidsPaire() < main2.poidsPaire());
+	}
 
+	@Test
+	public void testMainSuperieurDeuxPaire() {
+		PokerMain main1 = new PokerMain();
+		main1.add( new PokerCarte("3","pique"));
+		main1.add( new PokerCarte("2","carreau"));
+		main1.add( new PokerCarte("3","trefle"));
+		main1.add( new PokerCarte("2","trefle"));
+		main1.add( new PokerCarte("dame","coeur"));
+
+		PokerMain main2 = new PokerMain();
+		main2.add( new PokerCarte("8","carreau"));
+		main2.add( new PokerCarte("7","pique"));
+		main2.add( new PokerCarte("5","trefle"));
+		main2.add( new PokerCarte("roi","carreau"));
+		main2.add( new PokerCarte("5","coeur"));
+		
+		assertTrue(main1.poidsPaire() < main2.poidsPaire());
 	}
 
 }

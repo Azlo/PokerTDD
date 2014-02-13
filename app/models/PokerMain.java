@@ -11,6 +11,8 @@ public class PokerMain {
 	private ArrayList<PokerCarte> main = new ArrayList<PokerCarte>();
 	private String[] denominations = {"2","3","4","5","6","7","8","9","10","valet","dame","roi","as"};
 	private String[] couleurs = {"carreau", "coeur", "trefle", "pique"};
+	private String[] rang = {"carteSuperieur", "paire", "deuxPaire", "brelan", "quinte", "couleur", "mainPleine", "carre", "quinteCouleur", "quinteRoyal"};
+	private int poids = 0;
 
 	public PokerMain() {}
 
@@ -37,30 +39,42 @@ public class PokerMain {
 		}while( i < 5 );
 	}
 
+
 	public PokerCarte getCarte(int numCarte) {
 		return main.get(numCarte);
 	}
+
 
 	public ArrayList<PokerCarte> getMain() {
 		return main;
 	}
 
+
+	public void evaluerMain() {
+		if (main.possedePaire) {this.poids = Arrays.asList(rang).indexOf("paire");}
+		if (main.possedeBrelan) {this.poids = Arrays.asList(rang).indexOf("brelan");}
+		if (main.possedeCouleur) {this.poids = Arrays.asList(rang).indexOf("couleur");}
+		if (main.possedeMainPleine) {this.poids = Arrays.asList(rang).indexOf("MainPleine");}
+	}
+
+
 	public int size() {
 		return main.size();
 	}
 
+
 	public static int randInt(int min, int max) {
 
 		Random rand = new Random();
-
 		int randomNum = rand.nextInt((max - min) + 1) + min;
-
 		return randomNum;
 	}
+
 
 	public void add(PokerCarte c1) {
 		main.add(c1);
 	}
+
 
 	public int possedePaire() {
 
@@ -148,6 +162,9 @@ public class PokerMain {
 		return false;
 	}
 
+
+
+
 	public boolean possedeCouleur() {
 		boolean estUneCouleur = true;
 		String couleur = main.get(0).getCouleur();
@@ -179,17 +196,14 @@ public class PokerMain {
 	}
 
 	public int poidsPaire() {
-		/* Récupérer les paires */
 		if(this.getPaire() != null) {
 
 			PokerCarte carte = this.getPaire().get(0);
-
 			return Arrays.asList(denominations).indexOf(carte.getDenomination());
 
-		}else{
-
+		}
+		else{
 			return -1;
-
 		}
 	}
 
