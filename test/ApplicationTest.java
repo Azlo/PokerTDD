@@ -134,4 +134,15 @@ public class ApplicationTest {
 		assertFalse(main.possedeBrelan());
 	}
 
+	@Test
+	public void testMainPleine() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("8","pique"));
+		main.add( new PokerCarte("dame","trefle"));
+		main.add( new PokerCarte("dame","coeur"));
+		main.add( new PokerCarte("dame","pique"));
+		assertTrue(main.possedeMainPlein());
+	}
+
 }
