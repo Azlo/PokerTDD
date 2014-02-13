@@ -112,5 +112,15 @@ public class ApplicationTest {
 		assertThat(main.possedePaire()).isEqualTo(0);
 	}
 
+	@Test 
+	public void testBrelan() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("8","pique"));
+		main.add( new PokerCarte("8","trefle"));
+		main.add( new PokerCarte("3","coeur"));
+		main.add( new PokerCarte("9", "coeur"));
+		assertThat(main.possedeBrelan()).isEqualTo(1);
+	}
 
 }

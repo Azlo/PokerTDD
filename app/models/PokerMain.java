@@ -59,20 +59,15 @@ public class PokerMain {
 		int nbPaires = 0;
 
 		for(int i=0;i<main.size();i++) {
-
 			for(int j=i+1;j<main.size();j++) {
-
 				if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
-
 					nbPaires++;
-
 				}
-
 			}
-
 		}
-
 		return nbPaires;
 	}
+
+	
 
 }
