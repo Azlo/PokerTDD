@@ -68,13 +68,49 @@ public class ApplicationTest {
 		assertThat(pm1.size()).isEqualTo(5);
 	}
 	
-	@Test public void testPaire() {
+	@Test 
+	public void testUnePaire() {
 		PokerMain main = new PokerMain();
 		main.add( new PokerCarte("as","carreau"));
 		main.add( new PokerCarte("as","pique"));
 		main.add( new PokerCarte("8","trefle"));
 		main.add( new PokerCarte("dame","coeur"));
 		main.add( new PokerCarte("9", "coeur"));
-		assertTrue(main.possedePaire());
+		assertThat(main.possedePaire()).isEqualTo(1);
 	}
+
+	@Test 
+	public void testDeuxPaire() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("as","carreau"));
+		main.add( new PokerCarte("as","pique"));
+		main.add( new PokerCarte("8","trefle"));
+		main.add( new PokerCarte("8","coeur"));
+		main.add( new PokerCarte("9", "coeur"));
+		assertThat(main.possedePaire()).isEqualTo(2);
+	}
+
+	@Test 
+	public void testUnePaireDesordre() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("7","pique"));
+		main.add( new PokerCarte("6","trefle"));
+		main.add( new PokerCarte("8","coeur"));
+		main.add( new PokerCarte("9", "coeur"));
+		assertThat(main.possedePaire()).isEqualTo(1);
+	}
+
+	@Test 
+	public void testAucunePaire() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("7","pique"));
+		main.add( new PokerCarte("6","trefle"));
+		main.add( new PokerCarte("3","coeur"));
+		main.add( new PokerCarte("9", "coeur"));
+		assertThat(main.possedePaire()).isEqualTo(0);
+	}
+
+
 }

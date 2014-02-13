@@ -54,8 +54,25 @@ public class PokerMain {
 		main.add(c1);
 	}
 
-	public boolean possedePaire() {
-		return true;
+	public int possedePaire() {
+
+		int nbPaires = 0;
+
+		for(int i=0;i<main.size();i++) {
+
+			for(int j=i+1;j<main.size();j++) {
+
+				if(main.get(i).getDenomination()==main.get(j).getDenomination()) {
+
+					nbPaires++;
+
+				}
+
+			}
+
+		}
+
+		return nbPaires;
 	}
 
 }
