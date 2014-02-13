@@ -146,7 +146,7 @@ public class ApplicationTest {
 	}
 
 	@Test
-	public void testMainNonPleine() {
+	public void testAucuneMainPleine() {
 		PokerMain main = new PokerMain();
 		main.add( new PokerCarte("8","carreau"));
 		main.add( new PokerCarte("8","pique"));
@@ -156,4 +156,14 @@ public class ApplicationTest {
 		assertFalse(main.possedeMainPleine());
 	}
 
+	@Test
+	public void testCouleur() {
+		PokerMain main = new PokerMain();
+		main.add( new PokerCarte("8","carreau"));
+		main.add( new PokerCarte("7","carreau"));
+		main.add( new PokerCarte("as","carreau"));
+		main.add( new PokerCarte("roi","carreau"));
+		main.add( new PokerCarte("dame","carreau"));
+		assertTrue(main.possedeCouleur());
+	}
 }

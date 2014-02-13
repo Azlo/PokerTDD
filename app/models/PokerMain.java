@@ -123,9 +123,6 @@ public class PokerMain {
 				}
 			}
 		}
-
 		return false;
-
 	}
-
 }
